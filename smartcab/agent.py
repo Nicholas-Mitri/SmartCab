@@ -16,7 +16,7 @@ class LearningAgent(Agent):
         self.color = 'red'  # override color
         self.planner = RoutePlanner(self.env, self)  # simple route planner to get next_waypoint
 
-        # TODO: Initialize any additional variables here
+        # Initialize any additional variables here
         self.state = None
         self.deadline = self.env.get_deadline(self)
         self.trip_len = []
@@ -30,7 +30,7 @@ class LearningAgent(Agent):
 
     def reset(self, destination=None):
         self.planner.route_to(destination)
-        # TODO: Prepare for a new trip; reset any variables here, if required
+        # Prepare for a new trip by resetting vars
         self.deadline = self.env.get_deadline(self)
 
     def update(self, t):
@@ -39,11 +39,11 @@ class LearningAgent(Agent):
         inputs = self.env.sense(self)
         deadline = self.env.get_deadline(self)
 
-        # TODO: Update state
+        # Update state
         self.state, current_state_str = self.get_agent_state()
         print "Agent State: {}\n".format(current_state_str)
 
-        # TODO: Select action according to your policy
+        # Select action according to your policy
         if self.qtable.has_key(current_state_str):  # choose best action according to GLIE
 
             i = random.uniform(0, 1)
@@ -64,7 +64,7 @@ class LearningAgent(Agent):
         if reward >= 10:
             self.trip_len.append(self.deadline - deadline)
 
-        # TODO: Learn policy based on state, action, reward
+        # Learn policy based on state, action, reward
         new_state, new_state_str = self.get_agent_state()
 
         if not self.qtable.has_key(new_state_str):
