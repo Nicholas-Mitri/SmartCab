@@ -1,6 +1,11 @@
 # Project 4: Reinforcement Learning
 ## Train a Smartcab How to Drive
 
+This project is part of the Udacity nanodegree curriculum. Template code for a cab simulator is given with the training policy left out. 
+agent.py was used as a skeleton to implement a reinforcement learning algorithm based on Q-learning with the aim of teaching the simulated cab
+how to navigate an environemt with traffic rules while reaching its destination as quickly as possible. 
+
+
 ### Install
 
 This project requires **Python 2.7** with the [pygame](https://www.pygame.org/wiki/GettingStarted
